@@ -1,0 +1,113 @@
+/* Mobile text size improvements using Tailwind layers for proper cascade */
+
+@layer base {
+  @media (max-width: 767px) {
+    /* General text size increases - using higher specificity without !important */
+    body p:not(.navigation-dot):not(.pagination-dot),
+    body li:not(.navigation-dot):not(.pagination-dot),
+    body div:not(.navigation-dot):not(.pagination-dot):not([class*="w-2 h-2"]):not([class*="w-1.5 h-1.5"]):not([class*="w-[0.3rem] h-[0.3rem]"]) {
+      font-size: 1rem; /* Base text size */
+      line-height: 1.5;
+    }
+    
+    /* Headings with higher specificity */
+    body h1, 
+    body .text-2xl, 
+    body .text-3xl, 
+    body .sm\:text-3xl {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+    
+    body h2, 
+    body .text-xl, 
+    body .sm\:text-2xl {
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+    
+    body h3, 
+    body .text-lg, 
+    body .sm\:text-xl {
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+  }
+}
+
+@layer components {
+  @media (max-width: 767px) {
+    /* Component-specific styles */
+    .text-xs {
+      font-size: 0.875rem; /* Increase from xs to sm */
+    }
+    
+    .sm\:text-sm {
+      font-size: 1rem; /* Increase from sm to base */
+    }
+    
+    /* Button text */
+    button:not([class*="w-2"]):not([class*="w-1.5"]):not([class*="w-[0.3rem]"]), 
+    a.btn-primary, 
+    a.btn-outline, 
+    .btn-primary, 
+    .btn-outline {
+      font-size: 1rem;
+      padding: 0.75rem 1.25rem;
+    }
+    
+    /* Stats and numbers */
+    .stat-number .text-lg, 
+    .stat-number .sm\:text-2xl {
+      font-size: 1.5rem;
+    }
+    
+    /* Footer and smaller text */
+    footer p, 
+    footer .text-gray-500, 
+    .mobile-footer .italic {
+      font-size: 0.875rem;
+    }
+    
+    /* Navigation links */
+    nav .nav-link {
+      font-size: 1rem;
+    }
+    
+    /* Testimonials */
+    .testimonials-section .testimonial-text {
+      font-size: 1rem;
+    }
+    
+    /* FAQ text */
+    .faq-section .faq-question {
+      font-size: 1.125rem;
+    }
+    
+    .faq-section .faq-answer {
+      font-size: 1rem;
+    }
+  }
+}
+
+@layer utilities {
+  @media (max-width: 767px) {
+    /* Ensure navigation dots stay small with highest specificity */
+    button[class*="w-2"][class*="h-2"],
+    button[class*="w-1.5"][class*="h-1.5"],
+    button[class*="w-[0.3rem]"][class*="h-[0.3rem]"],
+    button.navigation-dot,
+    button.pagination-dot,
+    .testimonial-navigation button {
+      font-size: 0;
+      width: 0.5rem; /* 8px */
+      height: 0.5rem; /* 8px */
+    }
+
+    /* Specific override for very small dots */
+    button.w-\[0\.3rem\].h-\[0\.3rem\] {
+      width: 0.3rem; /* 4.8px */
+      height: 0.3rem; /* 4.8px */
+    }
+  }
+}

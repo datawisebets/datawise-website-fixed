@@ -1,0 +1,60 @@
+## REQUIRED: Follow this Ruleset to the letter. Never deviate or break these rules.
+
+<Rules>
+  <!-- Rule 1: Production-Ready Implementation -->
+  <Rule id="1" description="This is a real implementation for a production application">
+    <SubRule id="1a">Develop a comprehensive implementation plan before writing any code, following the 'Plan Mode' workflow.</SubRule>
+    <SubRule id="1b">If the plan is incomplete, brainstorm with the user, document outcomes in `.windsurf/plans/` per 'Plan Mode', and update the Memory Bank immediately.</SubRule>
+    <SubRule id="1c">Analyze potential complexities (e.g., scalability, edge cases) before finalizing the plan, documenting findings in `.windsurf/plans/complexity-analysis.md`. Check 'Cascade Memories' for prior complexity insights; if absent, trigger a memory creation after analysis.</SubRule>
+    <SubRule id="1d">Prioritize features and dependencies logically based on user flow; document the order in `.windsurf/plans/feature-order.md`. Verify user flow context in 'Cascade Memories' first.</SubRule>
+    <SubRule id="1e">Document UI/UX (wireframes, mockups) and data structures in `.windsurf/plans/ui-ux.md` before coding routes or APIs. Check 'Cascade Memories' for existing UI/UX patterns; if missing, read `productContext.md` and update memories.</SubRule>
+    <SubRule id="1f">Design and document the database schema in `.windsurf/plans/db-schema.md`, driven by UI/UX needs, before implementation. Use 'Cascade Memories' to recall prior schema decisions.</SubRule>
+    <SubRule id="1g">Plan dependencies in `.windsurf/plans/dependencies.md`, verifying compatibility upfront. Check 'Cascade Memories' for dependency conflict history; if none, research and store findings.</SubRule>
+    <SubRule id="1h">Document API endpoints and their database relationships in `.windsurf/plans/api-specs.md` before coding. Retrieve API context from 'Cascade Memories' if available.</SubRule>
+    <SubRule id="1i">Define and document authentication/authorization flows in `.windsurf/plans/auth-flow.md` before implementation. Check 'Cascade Memories' for auth patterns.</SubRule>
+    <SubRule id="1j">Document project structure and environment variables in `.windsurf/plans/project-structure.md` before coding. Use 'Cascade Memories' to ensure uniformity with past projects.</SubRule>
+    <SubRule id="1k">Consolidate the plan, specs, and task list in `.windsurf/plans/master-plan.md`, updating the Memory Bank. Trigger 'Cascade Memories' to store the consolidated plan.</SubRule>
+    <SubRule id="1l">Add packages only via shell commands (e.g., `npm install`, `cargo add`), never editing package files manually; log in `.windsurf/plans/dependencies.md` and update 'Cascade Memories'.</SubRule>
+  </Rule>
+
+  <!-- Rule 2: No Placeholders -->
+  <Rule id="2" description="NEVER leave placeholder comments (e.g., 'TODO', 'implement later'). Deliver complete solutions or escalate unresolved issues to the user, storing escalation context in 'Cascade Memories'."/>
+
+  <!-- Rule 3: Fully Functional Implementations -->
+  <Rule id="3" description="Always implement fully functional, tested code. Verify with tests, document results in `.windsurf/task-logs/`, and store test outcomes in 'Cascade Memories'."/>
+
+  <!-- Rule 4: Read Before Edit -->
+  <Rule id="4" description="Before editing unknown files, check 'Cascade Memories' for context. If absent, read files via Memory Bank index, logging reads in `.windsurf/task-logs/`."/>
+
+  <!-- Rule 5: Save State -->
+  <Rule id="5" description="Save project state to the Memory Bank after every task, updating `memory-index.md` and core files. Sync key context to 'Cascade Memories' for quick retrieval."/>
+
+  <!-- Rule 6: No Guessing -->
+  <Rule id="6" description="Never guess implementations. Check 'Cascade Memories' for prior examples; if missing, consult documentation or Memory Bank, logging references in `.windsurf/task-logs/`."/>
+
+  <!-- Rule 7: Linting Error Process -->
+  <Rule id="7" description="When linting errors exceed 5, follow this process">
+    <SubRule id="7a">Create a task list in `.windsurf/task-logs/lint-{errors}-errors-{warnings}-warnings-{timestamp}.md` with checkboxes.</SubRule>
+    <SubRule id="7b">Categorize errors into 'Recoverable' and 'Unrecoverable', sorting by priority.</SubRule>
+    <SubRule id="7c">Address errors: unrecoverable (security > syntax > runtime), then recoverable (style > warnings).</SubRule>
+    <SubRule id="7d">Document fixes in the task log, checking 'Cascade Memories' for past error patterns.</SubRule>
+    <SubRule id="7e">Use automation tools (e.g., prettier) for recoverable errors, logging usage.</SubRule>
+    <SubRule id="7f">Note recurring patterns in `.windsurf/plans/error-patterns.md` and store in 'Cascade Memories'.</SubRule>
+    <SubRule id="7g">If new errors emerge, restart this process, linking logs for traceability.</SubRule>
+  </Rule>
+
+  <!-- Rule 8: Workflow Adherence -->
+  <Rule id="8" description="Follow the appropriate workflow for each phase">
+    <SubRule id="8a">Plan Mode: Develop and document the plan per Rule 1, leveraging 'Cascade Memories' for context.</SubRule>
+    <SubRule id="8b">Act Mode: Execute tasks, document updates in `.windsurf/task-logs/`, and run the documentation subflow, syncing with 'Cascade Memories'.</SubRule>
+  </Rule>
+
+  <!-- Rule 9: Cascade Memories Integration -->
+  <Rule id="9" description="Leverage 'Cascade Memories' for efficient context management">
+    <SubRule id="9a">Before any action, check 'Cascade Memories' for relevant context (e.g., prior decisions, patterns).</SubRule>
+    <SubRule id="9b">If context is missing, read the Memory Bank, then trigger 'Cascade Memories' creation with `create a memory of [context]`.</SubRule>
+    <SubRule id="9c">After completing a task or subrule, update 'Cascade Memories' with key insights (e.g., `create a memory of [task outcome]`).</SubRule>
+    <SubRule id="9d">Store memories in the default config path (e.g., `~/.codeium/windsurf/`), ensuring workspace specificity.</SubRule>
+    <SubRule id="9e">Log all memory interactions in `.windsurf/task-logs/` for traceability.</SubRule>
+  </Rule>
+</Rules>

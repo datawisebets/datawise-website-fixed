@@ -1,0 +1,91 @@
+
+/* Revealing and transition animations */
+
+/* Image reveal animation with smoother transition */
+.image-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-reveal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #000, transparent);
+  animation: reveal 1.5s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes reveal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Soft page transitions - optimized for better performance */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms, transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 300ms, transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Staggered appearance animation */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.stagger-appear {
+  animation: staggerAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes staggerAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Feature card entrance animation */
+.feature-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: featureCardEntrance 0.5s ease-out forwards;
+}
+
+@keyframes featureCardEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion fallback for feature cards */
+@media (prefers-reduced-motion: reduce) {
+  .feature-card {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

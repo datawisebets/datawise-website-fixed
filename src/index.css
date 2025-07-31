@@ -1,0 +1,357 @@
+/* Google Fonts are now loaded via preload in index.html */
+
+/* Import accessibility styles first */
+@import './styles/accessibility.css';
+
+/* Import animation styles */
+@import './styles/decorative-animations.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --primary: 44 92% 63%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 44 92% 63%;
+    --accent-foreground: 0 0% 9%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    @apply bg-black min-h-screen;
+  }
+
+  body {
+    @apply text-foreground font-inter antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    background: #000000;
+  }
+  
+  /* Improve mobile readability */
+  @media (max-width: 640px) {
+    html {
+      font-size: 18px; /* Default is 16px, this is 12.5% increase for better readability */
+    }
+  }
+  
+  /* Ensure React root loads properly */
+  #root {
+    background-color: #000000;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-black/30 border border-white/10 rounded-xl relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.2)];
+  }
+
+  .btn-primary {
+    @apply bg-gold hover:bg-gold-light text-black font-semibold px-7 py-3.5 rounded-lg shadow-[0_5px_25px_rgba(247,197,72,0.3)] relative overflow-hidden;
+  }
+
+  .btn-primary::before {
+    @apply content-[''] absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0;
+  }
+
+  .btn-primary:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-outline {
+    @apply border-2 border-gold/30 hover:border-gold/70 text-white font-semibold px-7 py-3.5 rounded-lg shadow-[0_5px_25px_rgba(247,197,72,0.15)] relative overflow-hidden;
+  }
+
+  .btn-outline::before {
+    @apply content-[''] absolute inset-0 bg-gradient-to-r from-gold/5 to-transparent opacity-0;
+  }
+
+  .btn-outline:hover::before {
+    @apply opacity-100;
+  }
+
+  .nav-link {
+    @apply text-gray-300 hover:text-white relative;
+    text-decoration: none;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute left-0 right-0 bottom-2 h-0.5 bg-gold/50 transform scale-x-0 origin-left;
+  }
+
+  .nav-link:hover::after {
+    @apply transform scale-x-100;
+  }
+
+  .heading-gradient {
+    @apply text-gold;
+  }
+
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover animations for cards */
+.glass-card {
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 0 40px rgba(247, 197, 72, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Feature card animation */
+.feature-card {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Feature card radial gradient removed for Safari performance */
+.feature-card::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(247, 197, 72, 0.05);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+/* Step number animation */
+.step-number {
+  position: relative;
+}
+
+.step-number::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 1px solid rgba(247, 197, 72, 0.4);
+  border-radius: 50%;
+  animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+/* Text shimmer effect - simplified for Safari performance */
+.text-shimmer {
+  color: #F7C548;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Background animation removed for Safari performance */
+.bg-animate {
+  background: rgba(20, 20, 20, 0.7);
+}
+
+/* gradientBG keyframe removed - no longer needed */
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(247, 197, 72, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(247, 197, 72, 0.35);
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(247, 197, 72, 0.25);
+  color: white;
+}
+
+/* Body scroll lock utility class */
+.dwb-no-scroll {
+  overflow: hidden;
+}
+
+/* CSS-based scroll lock for dialogs and modals */
+body:has([data-state="open"]) {
+  overflow: hidden;
+}
+
+/* Hide scrollbar utilities */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+
+/* Code block styling for blog content */
+.code-language {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--gold-color, #D4AF37);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-bottom-left-radius: 0.25rem;
+  font-family: monospace;
+}
+
+pre {
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+pre code {
+  display: block;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+/* Utilities layer - highest priority overrides */
+@layer utilities {
+  /* Testimonial navigation dots with proper specificity */
+  button.testimonial-nav-dot {
+    width: 4px;
+    height: 4px;
+    min-width: 4px;
+    min-height: 4px;
+    max-width: 4px;
+    max-height: 4px;
+    font-size: 0;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 640px) {
+    button.testimonial-nav-dot {
+      width: 6px;
+      height: 6px;
+      min-width: 6px;
+      min-height: 6px;
+      max-width: 6px;
+      max-height: 6px;
+    }
+  }
+
+  /* Testimonial pagination dots with proper specificity */
+  .testimonial-pagination-dot {
+    height: 8px;
+    min-height: 8px;
+    max-height: 8px;
+    font-size: 0;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+
+  /* Simple testimonial dots with proper specificity */
+  .simple-testimonial-dot {
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    min-height: 8px;
+    max-width: 8px;
+    max-height: 8px;
+    font-size: 0;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+}
+
+/* Safari-specific performance optimizations */
+@supports (-webkit-backdrop-filter: none) {
+  /* Simplify radial gradients on Safari */
+  .radial-gold-gradient {
+    background: rgba(255, 215, 0, 0.1) !important;
+  }
+  
+  /* Disable complex gradients in pricing cards for Safari */
+  .pricing-card .radial-gold-gradient {
+    display: none !important;
+  }
+  
+  /* Optimize scroll performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Loading optimizations - more targeted */
+html {
+  background-color: #000000;
+}
+
+/* Prevent white flashes during loading */
+.loading, .suspense-fallback {
+  background-color: #000000;
+  color: #ffffff;
+}

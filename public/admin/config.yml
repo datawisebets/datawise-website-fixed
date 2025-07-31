@@ -1,0 +1,29 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "public/lovable-uploads" # Media files will be stored in the repo under public/uploads
+public_folder: "/lovable-uploads" # The src attribute for uploaded media will begin with /uploads
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "src/content/blog" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "string", default: "Jul 15, 2024"}
+      - {label: "Read Time", name: "readTime", widget: "string", default: "5 min read"}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - label: "Author"
+        name: "author"
+        widget: "object"
+        fields:
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Avatar", name: "avatar", widget: "image"}
+          - {label: "Title", name: "title", widget: "string"}
+      - {label: "Categories", name: "categories", widget: "list"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Body", name: "body", widget: "markdown"} 

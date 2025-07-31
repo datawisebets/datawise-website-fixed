@@ -1,0 +1,111 @@
+/* Smooth animation preset utility classes - optimized for performance */
+
+.smooth-fade {
+  /* Transition removed for Safari performance */
+}
+
+.smooth-transform {
+  /* Transition removed for Safari performance */
+}
+
+/* Modified for better performance - removed will-change for non-transform/opacity properties */
+.smooth-all {
+  /* Transition removed for Safari performance */
+}
+
+/* New utility classes for common animation patterns */
+.smooth-scale {
+  /* Transition removed for Safari performance */
+}
+
+.smooth-rotate {
+  /* Transition removed for Safari performance */
+}
+
+/* Optimized properties for elements that change position */
+.smooth-position {
+  /* Transition removed for Safari performance */
+}
+
+/* Performance hint for hover effects - removed layer forcing properties */
+.hover-hint {
+  /* Removed translateZ and backface-visibility */
+}
+
+/* Enhanced class for testimonial transitions - removed layer forcing properties */
+.testimonial-transition {
+  /* Transition removed for Safari performance */
+  contain: paint style;
+}
+
+/* Carousel container - prevent layout shifts */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  contain: layout size style;
+}
+
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  /* Transition removed for Safari performance */
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Enhanced swipeable carousel classes */
+.swipeable-container {
+  touch-action: pan-y;
+  user-select: none;
+  contain: content;
+}
+
+/* Smooth infinite carousel animation */
+.infinite-carousel {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  contain: paint style;
+}
+
+@keyframes smoothScroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-100%, 0, 0); }
+}
+
+/* Mobile-specific transitions - smoother and longer duration */
+@media (max-width: 767px) {
+  .testimonial-transition {
+    /* Transition removed for Safari performance */
+    contain: content;
+  }
+  
+  .smooth-fade,
+  .smooth-transform,
+  .smooth-scale,
+  .smooth-rotate,
+  .smooth-position {
+    /* Transition removed for Safari performance */
+  }
+}
+
+/* Reduced motion preference handling */
+@media (prefers-reduced-motion: reduce) {
+  .smooth-fade,
+  .smooth-transform,
+  .smooth-all,
+  .smooth-scale,
+  .smooth-rotate,
+  .smooth-position,
+  .testimonial-transition {
+    transition: none !important;
+    will-change: auto !important;
+  }
+}

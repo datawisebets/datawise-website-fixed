@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Datawise Bets Checkout</title>
+    <script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #000;
+            color: #fff;
+        }
+        #checkout-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+        .loading {
+            display: none; /* Hide loading message immediately */
+        }
+        [data-whop-checkout-plan-id] {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+        }
+        /* Style the iframe content if possible */
+        iframe {
+            border: none;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id="checkout-container">
+        <div class="loading" id="loading-message">
+            <p>Loading checkout...</p>
+        </div>
+    </div>
+
+    <script>
+        // Get plan ID from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const planId = urlParams.get('planId') || 'plan_NCr6hVh2qtYBb';
+        const theme = urlParams.get('theme') || 'dark';
+
+        console.log('Initializing Whop checkout with:', { planId, theme });
+
+        // Function to initialize checkout
+        function initializeCheckout() {
+            const container = document.getElementById('checkout-container');
+            const loadingMessage = document.getElementById('loading-message');
+            
+            // Create the checkout div
+            const checkoutDiv = document.createElement('div');
+            checkoutDiv.setAttribute('data-whop-checkout-plan-id', planId);
+            checkoutDiv.setAttribute('data-whop-checkout-theme', theme);
+            checkoutDiv.style.width = '100%';
+            checkoutDiv.style.height = '100%';
+            
+            // Replace loading message with checkout
+            container.innerHTML = '';
+            container.appendChild(checkoutDiv);
+            
+            console.log('Whop checkout element created');
+        }
+
+        // Check if this is a preload request
+        const isPreload = urlParams.get('preload') === 'true';
+        
+        // Initialize immediately for faster loading
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            initializeCheckout();
+        } else {
+            document.addEventListener('DOMContentLoaded', initializeCheckout);
+        }
+
+        // Listen for messages from parent window
+        window.addEventListener('message', (event) => {
+            if (event.data.type === 'checkout-complete') {
+                // Notify parent window
+                window.parent.postMessage({ type: 'checkout-complete' }, '*');
+            }
+        });
+
+        // Log any errors
+        window.addEventListener('error', (event) => {
+            console.error('Checkout error:', event);
+        });
+        
+        // Notify parent when Whop checkout is ready
+        // Check periodically for Whop elements
+        let notified = false;
+        const checkWhopReady = setInterval(() => {
+            const whopElement = document.querySelector('[data-whop-checkout-plan-id] iframe');
+            if (whopElement && !notified) {
+                notified = true;
+                clearInterval(checkWhopReady);
+                window.parent.postMessage({ type: 'whop-ready' }, '*');
+                console.log('Whop checkout is ready!');
+            }
+        }, 50);
+        
+        // Also notify when the iframe is created in our container
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.addedNodes.length > 0) {
+                    mutation.addedNodes.forEach((node) => {
+                        if (node.nodeName === 'IFRAME' && !notified) {
+                            notified = true;
+                            window.parent.postMessage({ type: 'whop-ready' }, '*');
+                            console.log('Whop iframe detected via MutationObserver');
+                            observer.disconnect();
+                        }
+                    });
+                }
+            });
+        });
+        
+        observer.observe(document.body, { childList: true, subtree: true });
+    </script>
+</body>
+</html>

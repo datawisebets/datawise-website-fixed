@@ -1,0 +1,70 @@
+
+/* Enhanced glass effects */
+.glass-effect {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(247, 197, 72, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-effect:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(247, 197, 72, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.glass-effect::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(247, 197, 72, 0.2) 0%, rgba(247, 197, 72, 0.07) 50%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.glass-effect:hover::before {
+  opacity: 1;
+}
+
+/* Glass card with enhanced hover and glow */
+.glass-card {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  border: 1px solid rgba(247, 197, 72, 0.25);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), 0 0 50px rgba(247, 197, 72, 0.25);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(247, 197, 72, 0.2) 0%, rgba(247, 197, 72, 0.07) 50%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced glow effect for specific elements */
+.glow-gold {
+  position: relative;
+}
+
+.glow-gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(247, 197, 72, 0.15) 0%, rgba(247, 197, 72, 0.05) 50%, transparent 70%);
+  z-index: -1;
+}

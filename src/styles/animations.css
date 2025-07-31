@@ -1,0 +1,9 @@
+
+/* Modular animation system - imports specialized animation files */
+
+/* Import specialized animation files */
+@import './core-animations.css';
+@import './reveal-animations.css';
+@import './chart-animations.css';
+@import './decorative-animations.css';
+@import './transition-utilities.css';

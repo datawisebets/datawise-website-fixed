@@ -1,0 +1,357 @@
+/* Accessibility Utilities */
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Focus management */
+.focus-visible:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip links */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 20%;
+    --accent: 0 0% 90%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 100% 30%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 50%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
+  }
+}
+
+.high-contrast {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --primary: 0 0% 0%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 90%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 0 0% 95%;
+  --muted-foreground: 0 0% 20%;
+  --accent: 0 0% 90%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 100% 30%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 50%;
+  --input: 0 0% 90%;
+  --ring: 0 0% 0%;
+}
+
+.high-contrast * {
+  border-color: hsl(var(--border)) !important;
+}
+
+.high-contrast button,
+.high-contrast a,
+.high-contrast input,
+.high-contrast select,
+.high-contrast textarea {
+  border: 2px solid hsl(var(--border)) !important;
+}
+
+/* Font size adjustments */
+.font-small {
+  font-size: 0.875rem;
+}
+
+.font-medium {
+  font-size: 1rem;
+}
+
+.font-large {
+  font-size: 1.125rem;
+}
+
+.font-extra-large {
+  font-size: 1.25rem;
+}
+
+/* Screen reader optimizations */
+.screen-reader-optimized {
+  /* Ensure sufficient spacing for screen readers */
+  line-height: 1.6;
+}
+
+.screen-reader-optimized h1,
+.screen-reader-optimized h2,
+.screen-reader-optimized h3,
+.screen-reader-optimized h4,
+.screen-reader-optimized h5,
+.screen-reader-optimized h6 {
+  margin-bottom: 0.5em;
+}
+
+.screen-reader-optimized p {
+  margin-bottom: 1em;
+}
+
+.screen-reader-optimized ul,
+.screen-reader-optimized ol {
+  margin-bottom: 1em;
+  padding-left: 2em;
+}
+
+.screen-reader-optimized li {
+  margin-bottom: 0.25em;
+}
+
+/* Focus indicators for interactive elements */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Ensure interactive elements have minimum touch targets */
+button,
+a,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Improve link visibility */
+a:not(.no-underline):not(.nav-link) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover:not(.no-underline):not(.nav-link) {
+  text-decoration-thickness: 2px;
+}
+
+/* Form accessibility improvements */
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+input:invalid,
+select:invalid,
+textarea:invalid {
+  border-color: hsl(var(--destructive));
+  box-shadow: 0 0 0 1px hsl(var(--destructive));
+}
+
+.error-message {
+  color: hsl(var(--destructive));
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Loading states */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Respect reduced motion for loading animation */
+@media (prefers-reduced-motion: reduce) {
+  .loading::after {
+    animation: none;
+    background: rgba(255, 255, 255, 0.1);
+    left: 0;
+  }
+}
+
+/* Keyboard navigation helpers */
+.keyboard-navigation {
+  /* Enhance keyboard navigation visibility */
+}
+
+.keyboard-navigation *:focus {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Print styles for accessibility */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+  
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+}
+
+/* Color contrast helpers */
+.contrast-border {
+  border: 1px solid hsl(var(--border));
+}
+
+.contrast-bg {
+  background-color: hsl(var(--muted));
+}
+
+/* Responsive text sizing */
+@media (max-width: 768px) {
+  .font-small { font-size: 0.8rem; }
+  .font-medium { font-size: 0.9rem; }
+  .font-large { font-size: 1rem; }
+  .font-extra-large { font-size: 1.1rem; }
+}
+
+/* Prevent font scaling from affecting navigation dots and small UI elements */
+@layer utilities {
+  /* Base navigation dot styling */
+  .nav-dot-base {
+    font-size: 0;
+    flex-shrink: 0;
+  }
+  
+  /* Testimonial navigation dots with higher specificity */
+  button.testimonial-nav-dot {
+    width: 4px;
+    height: 4px;
+    min-width: 4px;
+    min-height: 4px;
+    font-size: 0;
+    flex-shrink: 0;
+  }
+  
+  /* Responsive sizing for testimonial dots */
+  @media (min-width: 640px) {
+    button.testimonial-nav-dot {
+      width: 6px;
+      height: 6px;
+      min-width: 6px;
+      min-height: 6px;
+    }
+  }
+  
+  /* Other small UI elements */
+  .w-2.h-2,
+  .w-1\.5.h-1\.5,
+  .w-\[0\.3rem\].h-\[0\.3rem\] {
+    font-size: 0;
+  }
+  
+  /* Specific pagination buttons */
+  [class*="pagination"] button {
+    font-size: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+}
+
+/* Dark mode accessibility */
+@media (prefers-color-scheme: dark) {
+  .auto-contrast {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+    --primary: 0 0% 90%;
+    --primary-foreground: 0 0% 10%;
+  }
+}

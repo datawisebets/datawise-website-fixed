@@ -1,0 +1,72 @@
+
+/* Enhanced hover effects */
+.hover-lift {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-lift:hover {
+  box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
+}
+
+.hover-lift::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 50%, transparent 70%);
+  opacity: 0;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.hover-lift:hover::before {
+  opacity: 1;
+}
+
+.hover-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.25);
+}
+
+.hover-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 50%, transparent 70%);
+  opacity: 0;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.hover-glow:hover::before {
+  opacity: 1;
+}
+
+/* Add a general radial gradient class for any element */
+.radial-gold-gradient {
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 50%, transparent 70%);
+}
+
+/* General hover gradient effect class that can be applied to any element */
+.hover-gradient {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 50%, transparent 70%);
+  opacity: 0;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.hover-gradient:hover::before {
+  opacity: 1;
+}

@@ -1,0 +1,21 @@
+# Don't exclude files needed for build process
+# Only exclude files after build completes
+
+# Development files
+.env
+.env.local
+.git
+.gitignore
+node_modules
+README.md
+CLAUDE.md
+optimizations.md
+whop_checkout.md
+tsconfig*.json
+vitest.config.ts
+
+# IMPORTANT: Do not exclude src/ directory or any source files
+# The build process needs them
+
+# The actual source files will be handled by the build script
+# which renames index.html after build

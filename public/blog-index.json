@@ -1,0 +1,146 @@
+[
+  {
+    "slug": "does-luck-affect-sports-betting",
+    "title": "Does Luck Affect Sports Betting?",
+    "date": "Aug 5, 2024",
+    "excerpt": "Luck is an inevitable factor in sports betting, but its impact can be minimized through proper strategy and analysis. This guide explores the relationship between luck and skill in sports betting outcomes.",
+    "image": "/images/blog/luck-vs-skill.webp",
+    "categories": [
+      "Strategy",
+      "Analytics"
+    ],
+    "author": {
+      "name": "DataWiseBets",
+      "avatar": "/lovable-uploads/Logo_TransparentBackground.png"
+    },
+    "readTime": "5 min read",
+    "featured": true
+  },
+  {
+    "slug": "profitable-sports-betting-strategy-with-positive-expected-value",
+    "title": "Profitable Sports Betting Strategy with Positive Expected Value",
+    "date": "Jul 22, 2024",
+    "excerpt": "Learn how to implement a profitable sports betting strategy by focusing on positive expected value (EV) opportunities that give you an edge over sportsbooks.",
+    "image": "/images/blog/coin-graph.webp",
+    "categories": [
+      "Strategy",
+      "Analytics"
+    ],
+    "author": {
+      "name": "DataWiseBets",
+      "avatar": "/lovable-uploads/Logo_TransparentBackground.png"
+    },
+    "readTime": "5 min read",
+    "featured": true
+  },
+  {
+    "slug": "how-to-avoid-sportsbook-limits",
+    "title": "How To Avoid Sportsbook Limits",
+    "date": "Jun 4, 2024",
+    "excerpt": "Learn effective strategies to maintain healthy sportsbook accounts and avoid betting limits that can restrict your long-term profitability.",
+    "image": "/images/blog/vegas-sportsbook.jpg",
+    "categories": [
+      "Strategy",
+      "Advanced Tips"
+    ],
+    "author": {
+      "name": "DataWiseBets",
+      "avatar": "/lovable-uploads/Logo_TransparentBackground.png"
+    },
+    "readTime": "6 min read",
+    "featured": true
+  },
+  {
+    "slug": "devigging-sportsbook-odds",
+    "title": "Devigging Sportsbook Odds",
+    "date": "May 30, 2024",
+    "excerpt": "Learn how to remove the vigorish (vig) from sportsbook odds to uncover true probabilities and identify positive expected value betting opportunities.",
+    "image": "/images/blog/feature_game_lines_spreads.webp",
+    "categories": [
+      "Strategy",
+      "Analytics"
+    ],
+    "author": {
+      "name": "DataWiseBets",
+      "avatar": "/lovable-uploads/Logo_TransparentBackground.png"
+    },
+    "readTime": "5 min read",
+    "featured": true
+  },
+  {
+    "slug": "positive-expected-value-betting-beginner-guide",
+    "title": "Understanding Positive Expected Value in Sports Betting: A Beginner's Guide",
+    "date": "May 22, 2024",
+    "excerpt": "Learn how expected value (EV) can transform your betting approach from guesswork to a calculated strategy for long-term profitability.",
+    "image": "/images/blog/Sportsbook.webp",
+    "categories": [
+      "Strategy",
+      "Beginner Tips"
+    ],
+    "author": {
+      "name": "DataWiseBets",
+      "avatar": "/lovable-uploads/Logo_TransparentBackground.png"
+    },
+    "readTime": "4 min read",
+    "featured": true
+  },
+  {
+    "slug": "biggest-sports-betting-mistake-bankroll-management",
+    "title": "The #1 Mistake New Bettors Make (And How to Avoid It)",
+    "excerpt": "Poor bankroll management destroys more betting careers than bad picks ever will. Learn why 90% of bettors fail, how to manage your bankroll like a pro, and the simple rules that separate winners from losers.",
+    "image": "/images/blog/bankroll-management-professional.webp",
+    "categories": [
+      "Sports Betting Fundamentals",
+      "Bankroll Management",
+      "Betting Education"
+    ],
+    "author": "DataWise Team"
+  },
+  {
+    "slug": "how-to-read-sports-betting-odds",
+    "title": "How to Read Sports Betting Odds: A Beginner's Guide (+ Examples)",
+    "excerpt": "Master American, decimal, and fractional betting odds with our comprehensive guide. Learn to calculate payouts, convert between formats, and make smarter bets with real examples from NFL, NBA, and more.",
+    "image": "/images/blog/sports-betting-odds-professional.webp",
+    "categories": [
+      "Sports Betting Fundamentals",
+      "Betting Education"
+    ],
+    "author": "DataWise Team"
+  },
+  {
+    "slug": "moneyline-betting-101",
+    "title": "Moneyline Betting 101: The Simplest Way to Bet on Sports",
+    "excerpt": "Master moneyline betting with our complete guide. Learn how to read moneyline odds, calculate payouts, and find value betting on winners in NFL, NBA, MLB, NHL, and more.",
+    "image": "/images/blog/moneyline-betting-professional.webp",
+    "categories": [
+      "Sports Betting Fundamentals",
+      "Betting Education"
+    ],
+    "author": "DataWise Team"
+  },
+  {
+    "slug": "prizepicks-vs-underdog-fantasy",
+    "title": "PrizePicks vs. Underdog Fantasy: Which DFS Platform is Right for You?",
+    "excerpt": "Compare PrizePicks and Underdog Fantasy in our detailed 2025 guide. Learn the key differences in payouts, bonuses, features, and strategies to choose the best daily fantasy sports platform for your style.",
+    "image": "/images/blog/dfs-comparison-professional.webp",
+    "categories": [
+      "Sportsbook & DFS Platforms",
+      "Daily Fantasy Sports",
+      "Betting Education"
+    ],
+    "author": "DataWise Team"
+  },
+  {
+    "slug": "what-is-a-point-spread",
+    "title": "What is a Point Spread? An Explainer with NFL and NBA Examples",
+    "excerpt": "Learn everything about point spread betting, the most popular way to bet on football and basketball. Includes real examples, strategies, and tips for finding value in spread bets.",
+    "image": "/images/blog/point-spread-stadium-professional.webp",
+    "categories": [
+      "Sports Betting Fundamentals",
+      "Betting Education",
+      "NFL Betting",
+      "NBA Betting"
+    ],
+    "author": "DataWise Team"
+  }
+]

@@ -1,0 +1,6 @@
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' https: wss: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.ads-twitter.com https://ads-twitter.com https://www.googletagmanager.com https://identity.netlify.com https://cdn.gpteng.co https://t.datawisebets.com https://r2.leadsy.ai https://us.i.posthog.com https://us-assets.i.posthog.com; connect-src 'self' https://static.ads-twitter.com https://ads-twitter.com https://ads-api.twitter.com https://analytics.twitter.com https://www.google-analytics.com https://identity.netlify.com https://us.i.posthog.com https://t.datawisebets.com wss://us.i.posthog.com https://whop.com https://api.whop-cdn.com https://vitals.vercel-insights.com https://region1.google-analytics.com; img-src 'self' data: https://static.ads-twitter.com https://ads-twitter.com https://t.datawisebets.com https://www.googletagmanager.com https://www.google-analytics.com https://us.i.posthog.com https://us-assets.i.posthog.com;
